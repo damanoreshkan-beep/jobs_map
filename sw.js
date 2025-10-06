@@ -2,7 +2,7 @@ const CACHE='jobsnatchr-v1';
 const ASSETS=[
     './',
     './index.html',
-    './manifest.json',
+    './manifest.webmanifest',
     './logo-48.png',
     './logo-192.png',
     './logo.png',
