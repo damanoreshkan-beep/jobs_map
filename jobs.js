@@ -292,7 +292,7 @@
 
   // Fetch chunk list first
   const getPicks=async()=>{
-    const list=await fetch('/jobs/chunks-list.json',{cache:'no-store'})
+    const list=await fetch('./jobs/chunks-list.json',{cache:'no-store'})
       .then(r=>{ if(!r.ok) throw new Error('chunks-list.json not found'); return r.json() })
       .then(j=>Array.isArray(j)?j:chooseArray(j))
       .catch(e=>{ log('Error list:', e); return [] });
@@ -319,7 +319,7 @@
     let done=0; items=[];
     const fetchOne=async(u)=>{
       try{
-        const r=await fetch(u,{cache:'no-store'});
+        const r=await fetch('./'+u,{cache:'no-store'});
         if(!r.ok) throw new Error('HTTP '+r.status);
         const j=await r.json();
         const arr=chooseArray(j);
