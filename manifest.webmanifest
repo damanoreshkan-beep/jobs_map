@@ -1,14 +1,23 @@
 {
-  "id": "./",
   "name": "Job Map",
-  "short_name": "JobMap",
-  "start_url": "./",
+  "short_name": "Job Map",
+  "description": "Job Map",
+  "lang": "uk",
+  "dir": "ltr",
+  "start_url": "index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0a0f0a",
+  "orientation": "portrait",
   "theme_color": "#0a0f0a",
+  "background_color": "#0a0f0a",
   "icons": [
     { "src": "logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "logo.png",    "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
-  ]
+  ],
+  "shortcuts": [
+    { "name": "Play/Pause", "short_name": "Toggle", "url": "index.html#toggle" },
+    { "name": "Next Track", "short_name": "Next", "url": "index.html#next" }
+  ],
+  "categories": ["music", "entertainment", "audio"],
+  "prefer_related_applications": false
 }
