@@ -16,11 +16,25 @@
   </head>
   <body>
     <script>
+      
+      (()=>{ 
+        const D=document; 
+        if('serviceWorker' in navigator){ 
+            navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(console.error); 
+        }
+        let defferedEvt=null;
+        window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); defferedEvt=e; btn.style.display='inline-flex'; });
+        const btn=Object.assign(D.createElement('button'),{textContent:'Встановити',style:'position:fixed;right:12px;bottom:12px;z-index:9999;padding:10px 14px;border-radius:999px;background:#00ff88;color:#041;font-weight:800;border:none;display:none'});
+        btn.onclick=async()=>{ if(!defferedEvt) return; defferedEvt.prompt(); const {outcome}=await defferedEvt.userChoice; if(outcome) btn.remove(); defferedEvt=null; };
+        D.body.appendChild(btn);
+      })();
+      
       (() => {
         const s = document.createElement('script');
         s.src = './jobs.js?t=' + Date.now();
         document.body.appendChild(s);
       })();
+
     </script>
   </body>
 </html>

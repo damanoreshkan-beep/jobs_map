@@ -1,11 +1,13 @@
-const CACHE = 'jobsnatchr-v1';
-const ASSETS = [
-  '/',               // якщо стартуєш з /index.html
-  '/index.html',
-  '/manifest.json',
-  '/logo.png',
-  '/jobs.js'
-];
+const CACHE='jobsnatchr-v1';
+const ASSETS=[
+    './',
+    './index.html',
+    './manifest.json',
+    './logo-48.png',
+    './logo-192.png',
+    './logo.png',
+    './jobs.js'
+   ];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
