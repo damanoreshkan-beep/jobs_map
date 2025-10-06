@@ -32,8 +32,8 @@
     #jc-map .leaflet-container{width:100%;height:100%}
     #jc-panel{
       position:absolute; right:16px; bottom:16px; z-index:3;
-      width:100%; max-width:90vw;
-      height:42vh; max-height:78vh; min-height:20px;
+      width:min(480px,36vw); max-width:92vw;
+      height:42vh; max-height:78vh; min-height:220px;
       display:grid; grid-template-rows:auto 1fr; gap:12px; padding:14px 14px 12px;
       background:linear-gradient(to bottom right, rgba(10,20,10,.58), rgba(8,12,8,.34));
       border:1px solid rgba(180,255,210,.18);
@@ -58,7 +58,13 @@
     .v{color:#eaffea;word-break:break-word}
     .jc-dot-normal{}
     .jc-dot-active{filter:drop-shadow(0 0 6px rgba(0,255,160,.6))}
-  
+    @media (max-width:900px){
+      #jc-panel{left:0;right:0;bottom:0;margin:0;width:100%;max-width:none;
+        height:52vh;max-height:86vh;border-radius:16px 16px 0 0;padding:16px 14px 12px}
+      .kv{grid-template-columns:110px 1fr} #jc-ttl{font-size:17px}
+    }
+    @media (max-width:560px){ #jc-panel{height:58vh} .kv{grid-template-columns:96px 1fr} }
+
     /* Loader overlay */
     #jc-load{
       position:absolute;inset:0;z-index:4;display:grid;place-items:center;
