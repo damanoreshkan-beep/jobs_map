@@ -1,5 +1,12 @@
 <html>
  <head></head>
- <body style="background-color:black;"></body>
- <script src="./jobs.js"></script>
+ <body style="background-color:black;">
+     <script>
+     (() => {
+         const s = document.createElement('script');
+         s.src = './jobs.js?t='+Date.now();
+         document.body.appendChild(s);
+     })();
+ </script>
+ </body>
 </html>
